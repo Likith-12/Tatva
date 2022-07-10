@@ -1,0 +1,31 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= recipe.title %></h2>
+    <div class="content">
+      <p><%= recipe.body %></p>
+    </div>
+    <a class="delete" data-doc="<%= blog._id %>">
+      <p3>The recipe has been deleted</p3>
+    </a>
+  </div>
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/recipes`;
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>
+</body>
+</html>

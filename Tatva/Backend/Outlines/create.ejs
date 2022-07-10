@@ -1,0 +1,17 @@
+<html lang='en'>
+    <%- include("./head.ejs") %>
+
+    <body style="background-color:#170B3B;">
+        <%- include("./nav.ejs") %>
+        <h1 style="color:yellow;">Add a new recipe</h1>
+        <div class="create-recipe">
+            <form action="/recipes" method="POST">
+                <label for="Name" style="color:orange;">Recipe name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="Body" style="color:orange;">Recipe:</label>
+                <textarea id="body" name="body" required></textarea>
+                <button>Submit</button>
+            </form>
+        </div>
+    </body>
+    </html>
